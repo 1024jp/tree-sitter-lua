@@ -15,7 +15,7 @@ let package = Package(
         .library(name: "TreeSitterLua", targets: ["TreeSitterLua"]),
     ],
     dependencies: [
-        .package(name: "SwiftTreeSitter", url: "https://github.com/tree-sitter/swift-tree-sitter", from: "0.9.0"),
+        .package(url: "https://github.com/tree-sitter/swift-tree-sitter", from: "0.9.0"),
     ],
     targets: [
         .target(
@@ -32,7 +32,7 @@ let package = Package(
         .testTarget(
             name: "TreeSitterLuaTests",
             dependencies: [
-                "SwiftTreeSitter",
+                .product(name: "SwiftTreeSitter", package: "swift-tree-sitter"),
                 "TreeSitterLua",
             ],
             path: "bindings/swift/TreeSitterLuaTests"
